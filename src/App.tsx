@@ -1,7 +1,8 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 import InputField from './components/InputField';
 import TodoList from './components/TodoList';
+import Switch from '@mui/material/Switch';
 
 interface Todo {
   id:number
@@ -9,8 +10,21 @@ interface Todo {
   isDone: boolean
 }
 const App:React.FC = () => {
+  
   const [todo, setTodo] = useState<string>("")
   const [todos, setTodos] = useState<Todo[]>([])
+  //theme
+  const [theme, setTheme] = useState<string>("light-theme")
+  const toggleTheme = () => {
+    if(theme==="light-theme"){
+      setTheme("dark-theme")
+    }else{
+      setTheme("light-theme")
+    }
+  }
+  useEffect(()=>{
+    document.body.className = theme
+  },[theme])
 
   const handleAdd = () => {
     if(todo){
@@ -22,9 +36,11 @@ const App:React.FC = () => {
   return (
     <div className="App">
       <span className="heading" >ToDo App</span>
+      <Switch onClick={toggleTheme} />
       <InputField todo={todo} setTodo={setTodo} handleAdd={handleAdd}/>
       <TodoList todos={todos} setTodos={setTodos}/>
     </div>
+
   );
 }
 
