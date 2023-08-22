@@ -15,7 +15,7 @@ interface Props {
 }
 const InputField = ({todo , setTodo, handleAdd}:Props) => {
   return (
-    <Box sx={{ background:'white', borderRadius:'15px', width:'50%'}}>
+    <Box sx={{ background:'white', borderRadius:'15px', width:'70%'}}>
       <FormControl variant="standard" sx={{display:'flex',flexDirection:'row', marginLeft:'15px',width:'100%'}}>
         <InputLabel sx={{fontWeight:'bold'}}>
           Add Task

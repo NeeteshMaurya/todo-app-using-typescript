@@ -38,16 +38,16 @@
     background: black;
 }
 .todocard{
-    width: auto;
+    width: 700px;
 }
 
-@media screen and (max-width: 400px) {
+@media (max-width: 480px) {
     .heading {
         margin: 15px 0;
         font-size: 35px;
         z-index: 1;
     }
     .todocard{
-        width: 100px;
+        width: 300px;
     }
 }
